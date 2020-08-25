@@ -118,7 +118,7 @@ int getNum(vector<int> &arr,int value)
     int i = 0;
     int j = 0;
     int res = 0;
-    while (i < arr.size())//维护同一个子数组的最大最小值
+    while (i < arr.size())//维护同一个子数组的最大最小值，j一直向右扩大，每个子数组都是以i元素开头的数组
     {
         while (j < arr.size())
         {
