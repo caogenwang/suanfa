@@ -44,7 +44,7 @@ std::vector<int> getMaxWindow3(vector<int> &arr,int w)
     std::vector<int> res;
     for (int i = 0; i < arr.size(); i++)
     { 
-        while (!Qmax.empty() && arr[Qmax.back()] <= arr[i])
+        while (!Qmax.empty() && arr[Qmax.back()] <= arr[i])//不为0，同时新增加的元素比较大，就得将小的删掉
         {
             Qmax.pop_back();
         }
