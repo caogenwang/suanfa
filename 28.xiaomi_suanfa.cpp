@@ -49,7 +49,7 @@ std::vector<int> getMaxWindow3(vector<int> &arr,int w)
             Qmax.pop_back();
         }
         Qmax.push_back(i);
-        if (Qmax.front() == i - w)//超过一个窗口就得删掉队头元素
+        if (Qmax.front() == i - w)//超过一个窗口就得删掉队头元素，font位置记录的是最大值的下标，只要满足一个窗口，就是最大值
         {
             Qmax.pop_front();
         }
