@@ -118,11 +118,11 @@ int getNum(vector<int> &arr,int value)
     int i = 0;
     int j = 0;
     int res = 0;
-    while (i < arr.size())
+    while (i < arr.size())//维护同一个子数组的最大最小值
     {
         while (j < arr.size())
         {
-            while (!Qmin.empty() && arr[Qmin.back()] >= arr[j])//不为0，同时新增加的元素比较大，就得将小的删掉
+            while (!Qmin.empty() && arr[Qmin.back()] >= arr[j])//不为0，同时新增加的元素比较大，就得将大的删掉
             {
                 Qmin.pop_back();
             }
@@ -140,7 +140,7 @@ int getNum(vector<int> &arr,int value)
             }
             j++;
         }
-        if (Qmin.front() == i)
+        if (Qmin.front() == i)//i向右扩大，扩大到一定点的时候，需要pop掉以已经不应该在队列的元素了
         {
             Qmin.pop_front();
         }
