@@ -107,20 +107,66 @@ std::vector<int> getMaxWindow2(vector<int> &arr,int w)
 }
 
 //窗口大小是可变的
-int getMaxNumbersOfSubArray(vector<int> &arr,int value)
+int getNum(vector<int> &arr,int value)
 {
-    return 0;
+    if (arr.size()<=0)
+    {
+        return 0;
+    }
+    std::deque<int> Qmax;
+    std::deque<int> Qmin;
+    int i = 0;
+    int j = 0;
+    int res = 0;
+    while (i < arr.size())
+    {
+        while (j < arr.size())
+        {
+            while (!Qmin.empty() && arr[Qmin.back()] >= arr[j])//不为0，同时新增加的元素比较大，就得将小的删掉
+            {
+                Qmin.pop_back();
+            }
+            Qmin.push_back(j);
+
+            while (!Qmax.empty() && arr[Qmax.back()] <= arr[j])//不为0，同时新增加的元素比较大，就得将小的删掉
+            {
+                Qmax.pop_back();
+            }
+            Qmax.push_back(j);
+
+            if (arr[Qmax.front()] - arr[Qmin.front()] > value)
+            {
+                break;
+            }
+            j++;
+        }
+        if (Qmin.front() == i)
+        {
+            Qmin.pop_front();
+        }
+        if (Qmax.front() == i)
+        {
+            Qmax.pop_front();
+        }
+        res += j - i;
+        i++;
+    }
+    return res;
 }
 
 int main()
 {
-    std::vector<int> arr = {4,3,5,4,3,3,6,7};
-    int w = 3;
-    std::vector<int> res = getMaxWindow3(arr,w);
-    for (int i = 0; i < res.size(); i++)
-    {
-        printf("%d ",res[i]);
-    }
-    printf("\n");
+    // std::vector<int> arr = {4,3,5,4,3,3,6,7};
+    // int w = 3;
+    // std::vector<int> res = getMaxWindow3(arr,w);
+    // for (int i = 0; i < res.size(); i++)
+    // {
+    //     printf("%d ",res[i]);
+    // }
+    // printf("\n");
+    std::vector<int> arr = {1,2,3,4,5};
+    int w = 2;
+    int res = getNum(arr,w);
+    printf("%d\n",res);
     return 0;
 }
