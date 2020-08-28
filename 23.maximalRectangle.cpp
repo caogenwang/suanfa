@@ -51,7 +51,7 @@ public:
             res = max(res,largestRectangleArea(height));
         }
     }
-    int largestRectangleArea(vector<int>& height)
+    int largestRectangleArea(vector<int>& height)//错误
     {
         int res = 0;
         stack<int> s;

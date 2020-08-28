@@ -148,7 +148,7 @@ int getNum(vector<int> &arr,int value)
         {
             Qmax.pop_front();
         }
-        res += j - i;
+        res += j - i;//只要包含i，j位置的子数组都可以算
         i++;
     }
     return res;
