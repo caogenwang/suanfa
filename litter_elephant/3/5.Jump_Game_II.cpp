@@ -11,11 +11,11 @@ public:
         int pre_max_max_index = nums[0];
         int jump_min = 1;
         for (int i = 1; i < nums.size(); i++){
-        	if (i > current_max_index){
+        	if (i > current_max_index){//i是当前的位置，如果大于最大的跳跃index，则必须跳跃一次了
         		jump_min++;
 	        	current_max_index = pre_max_max_index;
 	        }
-        	if (pre_max_max_index < nums[i] + i){
+        	if (pre_max_max_index < nums[i] + i){//选择一个跳跃过程中最远可以跳的位置
        			pre_max_max_index = nums[i] + i;
         	}
         }

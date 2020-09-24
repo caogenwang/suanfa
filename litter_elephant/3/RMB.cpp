@@ -9,10 +9,10 @@ int main(){
 		int use = X / RMB[i];
 		count += use;
 		X = X - RMB[i] * use;
-		printf("需要面额为%d RMB%d张", RMB[i], use);
+		printf("需要面额为%d RMB %d 张\n", RMB[i], use);
 		printf("剩余需要的金额RMB %d.\n", X);
 	}
-	printf("总共需要%d RMB\n", count);
+	printf("总共需要 %d RMB张\n", count);
 	return 0;
 }
 
