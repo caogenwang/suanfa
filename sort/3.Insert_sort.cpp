@@ -24,11 +24,11 @@ int main(int argc,char**argv)
         int i = j-1;
         while (i>-1 && temp < test[i])
         {
-            test[i+1] = test[i];
+            test[i+1] = test[i];//向后覆盖
             i--;
             count ++;
         }
-        test[i+1] = temp;
+        test[i+1] = temp;//放入位置
         display(test,10);
     }
     
