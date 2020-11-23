@@ -36,7 +36,7 @@ std::vector<int> getMaxWindow(vector<int> &arr,int w)
     }
     return res;
 }
-
+/*计算每个滑动窗口中的最大值*/
 std::vector<int> getMaxWindow3(vector<int> &arr,int w)
 {
     std::deque<int> Qmax;
@@ -59,6 +59,29 @@ std::vector<int> getMaxWindow3(vector<int> &arr,int w)
         }
     }
     return res;
+}
+
+std::vector<int> getMaxWindow4(vector<int> &arr,int w)
+{
+    std::deque<int> Qmax;
+    std::vector<int> res;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        while (!Qmax.empty() && arr[Qmax.back()] <= arr[i])//不为0，同时新增加的元素比较大，就得将小的删掉
+        {
+            Qmax.pop_back();
+        }
+        Qmax.push_back(i);
+        if (Qmax.front() == i - w)//超过一个窗口就得删掉队头元素，font位置记录的是最大值的下标，只要满足一个窗口，就是最大值，font中存放的元素的位置和当前的位置差一个窗口大小时，不能再成为下一个窗口的中的元素了，需要删除了
+        {
+            Qmax.pop_front();
+        }
+        if (i >= w-1)//满足一个窗口了
+        {
+            res.push_back(arr[Qmax.front()]);
+        }
+    }
+    return res.reserve;
 }
 
 //采用队列方式
@@ -106,7 +129,7 @@ std::vector<int> getMaxWindow2(vector<int> &arr,int w)
     return res;
 }
 
-//窗口大小是可变的
+//窗口大小是可变的,记录下这滑动窗口的最大值
 int getNum(vector<int> &arr,int value)
 {
     if (arr.size()<=0)
@@ -166,7 +189,7 @@ int main()
     // printf("\n");
     std::vector<int> arr = {1,2,3,4,5};
     int w = 2;
-    int res = getNum(arr,w);
+    int res = getMaxNumber(arr,w);
     printf("%d\n",res);
     return 0;
 }

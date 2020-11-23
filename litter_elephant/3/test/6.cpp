@@ -17,23 +17,19 @@ public:
         int shooter = 1;
         int left = points[0].first;
         int right = points[0].second;
-        for (int i = 1; i < points.size(); i++)
+
+        for(int i=0;i<points.size();i++)
         {
-            if (points[i].first <= right)
+            int left_tmp = points[1].first;
+            int right_tmp = points[1].second;
+
+            if (left < left_tmp)
             {
-                left = points[i].first;
-                if (right > points[i].second)
-                {
-                    right = points[i].second;
-                }
+                
             }
-            else
-            {
-                shooter ++;
-                left = points[i].first;
-                right = points[i].second;
-            }
+            
         }
+
         return shooter;
     }
 };

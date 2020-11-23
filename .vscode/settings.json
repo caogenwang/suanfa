@@ -66,6 +66,9 @@
         "unordered_map": "cpp",
         "unordered_set": "cpp",
         "utility": "cpp",
-        "hash_map": "cpp"
+        "hash_map": "cpp",
+        "memory_resource": "cpp",
+        "__hash": "cpp",
+        "__functional_03": "cpp"
     }
 }
