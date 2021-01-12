@@ -10,7 +10,7 @@ public:
     	int column = dungeon[0].size();
     	std::vector<std::vector<int> > 
 						dp(row+1, std::vector<int>(column+1, 0));
-        dp[row-1][column-1] = std::max(1, 1-dungeon[row-1][column-1]);;
+        dp[row-1][column-1] = std::max(1, 1-dungeon[row-1][column-1]);
         for (int i = column-2; i>=0; i--){
 	    	dp[row-1][i] = std::max(1,dp[row-1][i+1] - dungeon[row-1][i]);
 	    }
