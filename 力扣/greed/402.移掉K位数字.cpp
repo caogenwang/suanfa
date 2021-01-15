@@ -23,19 +23,26 @@ public:
                 Q.push_back(num[i]);
             }
         }
-        while (k>0)
+        while (Q.size() != 0 && k>0)
         {
             Q.pop_back();
             k--;
         }
-        
+        cout<<Q.size()<<endl;
         string s;
-        
-        
+        for(int i = 0;i < Q.size();i++)
+        {
+            s += Q[i];
+        }
+        return s.length()==0?"0":s;
     }
 };
 
 int main()
 {
-
+    string s("10");
+    int k = 2;
+    Solution s1;
+    string res = s1.removeKdigits(s,k);
+    cout<<res<<endl;
 }
