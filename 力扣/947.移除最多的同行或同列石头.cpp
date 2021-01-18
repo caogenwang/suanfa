@@ -6,8 +6,6 @@
 #include <unordered_set>
 using namespace std;
 
-
-
 class Solution {//超时
 public:
     map<vector<int>,vector<vector<int> > > graph;
