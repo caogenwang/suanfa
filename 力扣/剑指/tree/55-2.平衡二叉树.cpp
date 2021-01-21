@@ -13,13 +13,17 @@ struct TreeNode {
 
 class Solution {
 public:
-    bool isBalanced(TreeNode* root) {
-        if (!root)
-        {   
+   bool isBalanced(TreeNode* pRoot) {
+        if(pRoot == nullptr)
+            return true;
+        int nleft = maxDepth(pRoot->left);
+        int nright = maxDepth(pRoot->right);
+        int diff = nleft - nright;
+        if(diff > 1 || diff < -1)
             return false;
-        }
-        
+        return isBalanced(pRoot->left) && isBalanced(pRoot->right);
     }
+    
 
     int maxDepth(TreeNode* root) {
         if (!root)
