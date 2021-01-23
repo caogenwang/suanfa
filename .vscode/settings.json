@@ -70,6 +70,9 @@
         "memory_resource": "cpp",
         "__hash": "cpp",
         "__functional_03": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "*.tcc": "cpp",
+        "clocale": "cpp",
+        "random": "cpp"
     }
 }
