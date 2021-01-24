@@ -119,6 +119,23 @@ public:
     }
 };
 
+class Solution4 {
+public:
+    vector<int> addToArrayForm(vector<int>& A, int K) {
+        vector<int> res;
+        for (int i = (int)A.size() - 1; i >= 0; --i) 
+        {
+            res.insert(res.begin(), (A[i] + K) % 10);
+            K = (A[i] + K) / 10;
+        }
+        while (K > 0) {
+            res.insert(res.begin(), K % 10);
+            K /= 10;
+        }
+        return res;
+    }
+};
+
 int main()
 {
 
