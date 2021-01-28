@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -34,34 +35,27 @@ public:
 class Solution2 {
 public:
     int pivotIndex(vector<int>& nums) {
-        if (nums.size() <= 0)
-        {
-            return -1;
-        }
-        int total = 0;
-        for (int i = 0; i < nums.size(); i++)
-        {
-            total += nums[i];
-        }
+        int total = accumulate(nums.begin(), nums.end(), 0);
         int sum = 0;
         for (int i = 0; i < nums.size(); i++)
         {
-            if (i == 0)
-            {
-                sum += 0;
-            }
-            else{
-                sum += nums[i-1];
-            }
-            if ((total - nums[i])%2 != 0) {
-                continue;
-            }
-            
-            int left = (total - nums[i])/2;
-            if (left == sum)
-            {
+            if ((total - nums[i]) == sum*2)
                 return i;
-            }
+            sum += nums[i];
+        }
+        return -1;
+    }
+};
+
+class Solution3 {
+public:
+    int pivotIndex(vector<int>& nums) {
+        int sum = accumulate(nums.begin(), nums.end(), 0);
+        int curSum = 0, n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            if (sum - nums[i] == 2 * curSum) 
+                return i;
+            curSum += nums[i];
         }
         return -1;
     }
