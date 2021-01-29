@@ -97,10 +97,30 @@ public:
     }
 };
 
+class Solution_2 {
+public:
+    vector<vector<int> > largeGroupPositions(string s)
+    {
+        vector<vector<int> > res;
+        int num = 1;
+        for (int i = 0; i < s.length(); i++) {
+            if (i == s.length() - 1 || s[i] != s[i+1]) {
+                if (num >= 3) {
+                    res.push_back({i-num+1,i});
+                }
+                num = 1;
+            }
+            else
+                num ++;
+        }
+        return res;
+    }
+};
+
 int main()
 {
     string s = "abcdddeeeeaabbbcd";
-    Solution3  solution;     
+    Solution2  solution;     
     vector<vector<int> > vv = solution.largeGroupPositions(s);
     cout<<"---------"<<endl;
     for (int i = 0; i < vv.size(); i++)
