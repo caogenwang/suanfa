@@ -37,7 +37,7 @@ public:
 我们并不希望窗口变小，虽然窗口在滑动，但是之前是出现过跟窗口大小相同的符合题意的子串，缩小窗口没有意义，
 并不会使结果 res 变大，所以我们才不更新 maxCnt
 */
-class Solution2 {
+class Solution2 {//滑动窗口
 public:
     int characterReplacement(string s, int k) {
         int res = 0, maxCnt = 0, start = 0;
