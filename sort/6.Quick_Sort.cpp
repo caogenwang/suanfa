@@ -18,13 +18,17 @@ int partion(int*arr, int left, int right) {
              int temp = arr[i];
              arr[i] = arr[j];
              arr[j] = temp;
+             printf("i:%d,j:%d\n",i,j);
              display(arr,10);
+             printf("----------------------\n");
          }
+         /*其实就是交换arr[left]和arr[j]的值，j的位置是一个比pivot的值小的值，所以需要交换位置*/
          arr[left] = arr[j];
+         display(arr,10);
          // 使中轴元素处于有序的位置
          arr[j] = pivot;
-         printf("***\n");
          display(arr,10);
+         printf("***\n");
         return j;
 }
 
