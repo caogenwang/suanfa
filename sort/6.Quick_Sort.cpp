@@ -29,13 +29,13 @@ int partion(int*arr, int left, int right) {
 }
 
 int *quickSort(int *arr, int left, int right) {
-         if (left < right) {
-             //获取中轴元素所处的位置
-             int mid = partion(arr, left, right);
-             //进行分割
-             arr = quickSort(arr, left, mid - 1);
-             arr = quickSort(arr, mid + 1, right);
-          }
+    if (left < right) {
+        //获取中轴元素所处的位置
+        int mid = partion(arr, left, right);
+        //进行分割
+        arr = quickSort(arr, left, mid - 1);
+        arr = quickSort(arr, mid + 1, right);
+    }
     return arr;
 }
 
