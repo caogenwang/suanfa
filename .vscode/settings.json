@@ -73,6 +73,7 @@
         "numeric": "cpp",
         "*.tcc": "cpp",
         "clocale": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "__memory": "cpp"
     }
 }
