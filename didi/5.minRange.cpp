@@ -20,10 +20,7 @@ string minWindow(string s, string t) {
             tmp_pos[s[i]-'A'] = -1;
             n--;
         }
-        cout<<s[i]<<" ";
         for (int j=i+1;j<s.length() ; j++) {
-            cout<<s[j]<<" ";
-            cout<<"n:"<<n<<" ";
             if (tmp_pos[s[j]-'A'] == -1) {
                 
                 tmp_str.push_back(s[j]);
@@ -41,7 +38,6 @@ string minWindow(string s, string t) {
                 }
             }
         }
-        cout<<endl;
     }
     int min = INT_MAX;
     int pos = 0;
